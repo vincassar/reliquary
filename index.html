@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RELIQUARY — The Global Heist Files</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="btn-mute" class="mute-btn" aria-label="Toggle sound">🔊</button>
+    <div id="app">
+      <!-- Title -->
+      <section id="screen-title" class="screen active">
+        <div class="title-card">
+          <div class="crest">✠</div>
+          <h1>RELIQUARY</h1>
+          <p class="subtitle">The Global Heist Files · 2026 Edition</p>
+          <p class="pitch">
+            A detective game of geography, history, and lore. Chase an international thief across the
+            world in seventy-two hours.
+          </p>
+          <div class="ring-roster" id="ring-roster"></div>
+
+          <div class="mode-picker" id="mode-picker">
+            <h3 class="mode-picker-label">Choose your mode</h3>
+            <div class="mode-buttons">
+              <button class="mode-btn" data-mode="catholic">
+                <span class="mode-title">Sacred Relics</span>
+                <span class="mode-blurb">Catholic saint lore woven into the geography.</span>
+              </button>
+              <button class="mode-btn" data-mode="secular">
+                <span class="mode-title">World Heritage</span>
+                <span class="mode-blurb">General history and geography — museums, monuments, UNESCO sites.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="ring-busted-card hidden" id="ring-busted-card">
+            <h3>The ring is broken.</h3>
+            <p>Every operator and the Patriarch himself behind bars. The Bureau sends its highest commendations. No further cases remain.</p>
+            <button id="btn-new-ring" class="big-btn">Start a New Ring</button>
+          </div>
+
+          <details class="howto">
+            <summary>How to play</summary>
+            <ol>
+              <li>A famous artifact has been stolen. You are the Bureau's top field agent.</li>
+              <li>In each city, interview three witnesses. Some point to the next destination; some describe the thief.</li>
+              <li>Clues turn on geography, history, and — in Sacred Relics mode — Catholic tradition.</li>
+              <li>Study the five suspect files. As you gather traits (hair, hobby, vehicle, feature), issue an arrest warrant.</li>
+              <li>Catch the thief in the final city before time runs out, with the correct warrant in hand. Longer cases have more time — budget scales with the trail.</li>
+            </ol>
+          </details>
+        </div>
+      </section>
+
+      <!-- Briefing -->
+      <section id="screen-briefing" class="screen">
+        <div class="briefing-card">
+          <div class="stamp">CONFIDENTIAL</div>
+          <h2 id="briefing-title">Case Briefing</h2>
+          <p id="briefing-text"></p>
+          <p class="briefing-origin" id="briefing-origin"></p>
+          <button id="btn-accept" class="big-btn">Accept the Case</button>
+        </div>
+      </section>
+
+      <!-- Game -->
+      <section id="screen-game" class="screen">
+        <header class="game-header">
+          <div class="case-strip">
+            <div class="case-label">CASE</div>
+            <div class="case-title" id="case-title">—</div>
+          </div>
+          <div class="clock" id="clock">72:00</div>
+        </header>
+
+        <div class="tab-bar" role="tablist">
+          <button class="tab-btn active" data-tab="scene" role="tab">Scene</button>
+          <button class="tab-btn" data-tab="dossier" role="tab">
+            Dossier<span class="tab-badge hidden" id="dossier-badge">●</span>
+          </button>
+          <button class="tab-btn" data-tab="flights" role="tab">Departures</button>
+        </div>
+
+        <div class="tab-panes">
+          <div class="tab-pane active" data-tab="scene">
+            <main class="city-view">
+              <nav class="breadcrumb" id="breadcrumb" aria-label="Investigation progress"></nav>
+              <div class="city-header">
+                <span class="flag" id="city-flag">🏳️</span>
+                <h2 id="city-name">—</h2>
+              </div>
+              <p id="city-flavor" class="flavor"></p>
+              <div id="witnesses" class="witnesses"></div>
+              <div id="clue-log" class="clue-log"></div>
+              <div id="final-action" class="final-action hidden">
+                <p>You've tracked the thief here. If your warrant matches, close in.</p>
+                <button id="btn-arrest" class="big-btn">Make the Arrest</button>
+              </div>
+            </main>
+          </div>
+
+          <div class="tab-pane" data-tab="dossier">
+            <div class="dossier">
+              <div class="dossier-grid">
+                <div class="dossier-section">
+                  <div class="dossier-label">Evidence</div>
+                  <ul id="dossier-traits" class="trait-list"></ul>
+                </div>
+                <div class="dossier-section">
+                  <div class="dossier-label">Warrant</div>
+                  <div id="dossier-warrant" class="warrant-pill none">— none issued —</div>
+                  <button id="btn-warrant" class="ghost-btn">Issue / Change Warrant</button>
+                </div>
+              </div>
+              <div class="dossier-section">
+                <div class="dossier-label">Suspect Files</div>
+                <div id="suspect-files" class="suspect-grid"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" data-tab="flights">
+            <div class="flights">
+              <p class="flights-hint">Flights cost 10 hours. A wasted trip costs 14.</p>
+              <div id="flight-options" class="flight-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Flight Map -->
+      <div id="map-modal" class="map-modal hidden">
+        <div class="map-paper">
+          <div class="map-title" id="map-title">BUREAU CHART · GLOBAL TRAFFIC</div>
+          <svg id="world-map" viewBox="0 0 720 360" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="map-status" id="map-status"></div>
+          <button id="btn-map-skip" class="ghost-btn map-skip">Skip</button>
+        </div>
+      </div>
+
+      <!-- Warrant Modal -->
+      <div id="warrant-modal" class="modal hidden">
+        <div class="modal-box">
+          <h3>Issue Arrest Warrant</h3>
+          <p>Select the suspect whose profile matches the evidence.</p>
+          <div id="warrant-options"></div>
+          <button id="btn-warrant-cancel" class="ghost-btn">Cancel</button>
+        </div>
+      </div>
+
+      <!-- Cutscene -->
+      <div id="cutscene-modal" class="cutscene-modal hidden">
+        <div class="cutscene-stage">
+          <div class="cutscene-frame" id="cutscene-frame"></div>
+          <div class="cutscene-caption" id="cutscene-caption"></div>
+          <button id="btn-cutscene-skip" class="ghost-btn cutscene-skip">Skip ▸</button>
+        </div>
+      </div>
+
+      <!-- End -->
+      <section id="screen-end" class="screen">
+        <div class="end-card">
+          <h2 id="end-title">—</h2>
+          <p id="end-text"></p>
+          <p id="end-solution" class="end-solution"></p>
+          <button id="btn-replay" class="big-btn">New Case</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="continents.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
