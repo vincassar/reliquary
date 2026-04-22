@@ -561,6 +561,62 @@ h1 {
   gap: 10px;
 }
 
+/* Mini departures map */
+#departures-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  background: #14100c;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+#departures-map .dep-continent {
+  fill: #3a2d1f;
+  stroke: #5a4330;
+  stroke-width: 0.5;
+  fill-opacity: 0.9;
+}
+#departures-map .dep-dot {
+  fill: var(--gold);
+  stroke: var(--bg-deep);
+  stroke-width: 1;
+  transition: fill 0.15s;
+  cursor: pointer;
+}
+#departures-map .dep-dot.origin {
+  fill: var(--gold-bright);
+  stroke: var(--bg-deep);
+  opacity: 0.6;
+}
+#departures-map .dep-dot.hovered {
+  fill: var(--burgundy-bright);
+  filter: drop-shadow(0 0 5px var(--gold-bright));
+}
+#departures-map .dep-label {
+  fill: var(--ink);
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  pointer-events: none;
+  text-shadow: 0 0 3px var(--bg-deep);
+}
+#departures-map .dep-label.origin {
+  fill: var(--ink-dim);
+  font-size: 11px;
+}
+#departures-map .dep-label.hovered {
+  fill: var(--gold-bright);
+  font-weight: bold;
+  font-size: 14px;
+}
+.flight.hover-highlight {
+  background: #36291e;
+  border-color: var(--gold);
+  transform: translateX(3px);
+}
+
 .dossier-section {
   margin-bottom: 20px;
 }

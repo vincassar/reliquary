@@ -927,6 +927,7 @@
     const wrap = $("flight-options");
     wrap.innerHTML = "";
     const visit = state.cityVisits[state.position];
+    renderDeparturesMap(visit);
     if (!visit.options) {
       const p = document.createElement("p");
       p.className = "flights-hint";
@@ -938,12 +939,76 @@
       const city = CITIES[cid];
       const f = document.createElement("button");
       f.className = "flight";
+      f.dataset.city = cid;
       f.innerHTML =
         `<span class="dest">${city.name}</span>` +
         `<span class="flag-sm">${city.flag}</span>`;
       f.addEventListener("click", () => flyTo(cid));
+      f.addEventListener("mouseenter", () => highlightDeparture(cid, true));
+      f.addEventListener("mouseleave", () => highlightDeparture(cid, false));
+      f.addEventListener("focus", () => highlightDeparture(cid, true));
+      f.addEventListener("blur", () => highlightDeparture(cid, false));
       wrap.appendChild(f);
     });
+  }
+
+  function renderDeparturesMap(visit) {
+    const svg = $("departures-map");
+    if (!svg) return;
+    svg.innerHTML = "";
+    // Continents (reuse the same paths from the flight map)
+    CONTINENT_PATHS.forEach((d) => {
+      const p = document.createElementNS(SVG_NS, "path");
+      p.setAttribute("d", d);
+      p.setAttribute("class", "dep-continent");
+      svg.appendChild(p);
+    });
+
+    const addCity = (cid, cls) => {
+      const coord = CITY_COORDS[cid];
+      if (!coord) return;
+      const { x, y } = project(coord.lat, coord.lon);
+      const dot = document.createElementNS(SVG_NS, "circle");
+      dot.setAttribute("cx", x);
+      dot.setAttribute("cy", y);
+      dot.setAttribute("r", cls.includes("origin") ? 6 : 5);
+      dot.setAttribute("class", `dep-dot ${cls}`);
+      dot.dataset.city = cid;
+      dot.addEventListener("mouseenter", () => highlightDeparture(cid, true));
+      dot.addEventListener("mouseleave", () => highlightDeparture(cid, false));
+      dot.addEventListener("click", () => {
+        if (!cls.includes("origin")) flyTo(cid);
+      });
+      svg.appendChild(dot);
+      const label = document.createElementNS(SVG_NS, "text");
+      label.textContent = CITIES[cid].name.split(",")[0];
+      label.setAttribute("x", x + 7);
+      label.setAttribute("y", y + 4);
+      label.setAttribute("class", `dep-label ${cls}`);
+      label.dataset.city = cid;
+      svg.appendChild(label);
+    };
+
+    // Origin (current city)
+    const originId = state.trail[state.position];
+    if (originId) addCity(originId, "origin");
+    // Flight options, if any
+    if (visit && visit.options) {
+      visit.options.forEach((cid) => {
+        if (cid !== originId) addCity(cid, "option");
+      });
+    }
+  }
+
+  function highlightDeparture(cityId, on) {
+    const svg = $("departures-map");
+    if (svg) {
+      svg.querySelectorAll(
+        `.dep-dot[data-city="${cityId}"], .dep-label[data-city="${cityId}"]`
+      ).forEach((el) => el.classList.toggle("hovered", on));
+    }
+    const btn = document.querySelector(`.flight[data-city="${cityId}"]`);
+    if (btn) btn.classList.toggle("hover-highlight", on);
   }
 
   // -------- actions --------
