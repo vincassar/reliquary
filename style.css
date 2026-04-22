@@ -585,6 +585,24 @@ h1 {
   transition: fill 0.15s;
   cursor: pointer;
 }
+#departures-map .dep-dot.option {
+  animation: dep-dot-pulse 1.4s ease-in-out infinite;
+}
+@keyframes dep-dot-pulse {
+  0%, 100% { fill: var(--gold);        r: 5; }
+  50%      { fill: var(--gold-bright); r: 7; }
+}
+#departures-map .dep-ping {
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 2;
+  pointer-events: none;
+  animation: dep-ping 1.8s ease-out infinite;
+}
+@keyframes dep-ping {
+  0%   { r: 5;  opacity: 0.75; stroke-width: 2; }
+  100% { r: 20; opacity: 0;    stroke-width: 0.5; }
+}
 #departures-map .dep-dot.origin {
   fill: var(--gold-bright);
   stroke: var(--bg-deep);
