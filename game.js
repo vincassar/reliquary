@@ -968,25 +968,12 @@
       const coord = CITY_COORDS[cid];
       if (!coord) return;
       const { x, y } = project(coord.lat, coord.lon);
-      // Radar ping ring behind option dots — staggered per dot for variety.
-      if (cls.includes("option")) {
-        const ping = document.createElementNS(SVG_NS, "circle");
-        ping.setAttribute("cx", x);
-        ping.setAttribute("cy", y);
-        ping.setAttribute("r", 5);
-        ping.setAttribute("class", "dep-ping");
-        ping.style.animationDelay = `${Math.random() * 1.6}s`;
-        svg.appendChild(ping);
-      }
       const dot = document.createElementNS(SVG_NS, "circle");
       dot.setAttribute("cx", x);
       dot.setAttribute("cy", y);
       dot.setAttribute("r", cls.includes("origin") ? 6 : 5);
       dot.setAttribute("class", `dep-dot ${cls}`);
       dot.dataset.city = cid;
-      if (cls.includes("option")) {
-        dot.style.animationDelay = `${Math.random() * 1.4}s`;
-      }
       dot.addEventListener("mouseenter", () => highlightDeparture(cid, true));
       dot.addEventListener("mouseleave", () => highlightDeparture(cid, false));
       dot.addEventListener("click", () => {
