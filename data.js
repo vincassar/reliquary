@@ -1620,6 +1620,531 @@ const CITIES = {
       ],
     },
   },
+  ottawa: {
+    name: "Ottawa, Canada",
+    flag: "🇨🇦",
+    flavor: "The Rideau Canal runs between Parliament's copper roofs. Beavertails steam on Sparks Street in winter.",
+    witnesses: {
+      catholic: ["a sacristan at Notre Dame Cathedral Basilica", "a ByWard Market vendor", "an OC Transpo driver on Rideau"],
+      secular: ["a Parliament tour guide", "a ByWard Market vendor", "an OC Transpo driver on Rideau"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Canada's capital on the Ottawa River.",
+        "They asked about Notre Dame Cathedral Basilica, the oldest standing church in Ottawa.",
+        "They mentioned Saint Kateri Tekakwitha, first Indigenous North American saint.",
+        "They wanted the Canadian Martyrs' Shrine in Midland, three hours southwest.",
+        "They spoke of Blessed Marie of the Incarnation, Ursuline founder in New France.",
+      ],
+      secular: [
+        "They were flying to Canada's capital on the Ottawa River.",
+        "They asked about Parliament Hill and the Peace Tower.",
+        "They mentioned the Rideau Canal — a skating rink in winter.",
+        "They wanted the ByWard Market and a beavertail pastry.",
+        "They spoke of the National Gallery and the Group of Seven collection.",
+      ],
+    },
+  },
+  montreal: {
+    name: "Montreal, Canada",
+    flag: "🇨🇦",
+    flavor: "French church bells ring across Mount Royal. Bagels and smoked meat scent the air of the Plateau.",
+    witnesses: {
+      catholic: ["a priest at Notre-Dame Basilica", "a Schwartz's deli counterman", "a Montréal Métro operator at Berri-UQAM"],
+      secular: ["a guide at Mount Royal lookout", "a Schwartz's deli counterman", "a Montréal Métro operator at Berri-UQAM"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Quebec's largest city on the St. Lawrence.",
+        "They asked about St. Joseph's Oratory, the world's largest shrine to Saint Joseph.",
+        "They mentioned Saint André Bessette, the Oratory's doorkeeper canonized in 2010.",
+        "They wanted Notre-Dame Basilica in Old Montreal.",
+        "They spoke of Saint Marguerite Bourgeoys and the Congregation of Notre-Dame.",
+      ],
+      secular: [
+        "They were flying to Quebec's largest city on the St. Lawrence.",
+        "They asked about Old Montreal's cobblestones and Bonsecours Market.",
+        "They mentioned Mount Royal Park, landscaped by Frederick Law Olmsted.",
+        "They wanted smoked meat at Schwartz's.",
+        "They spoke of the 1967 World's Fair Biosphere — a geodesic dome.",
+      ],
+    },
+  },
+  wellington: {
+    name: "Wellington, New Zealand",
+    flag: "🇳🇿",
+    flavor: "Steep suburbs crowd above a deep-water harbour. The Cable Car climbs to a botanic garden over the bay.",
+    witnesses: {
+      catholic: ["a sacristan at Sacred Heart Cathedral", "a waterfront café owner in Te Aro", "a Cable Car operator"],
+      secular: ["a Te Papa museum guide", "a waterfront café owner in Te Aro", "a Cable Car operator"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to New Zealand's capital on Te Whanganui-a-Tara harbour.",
+        "They asked after Sacred Heart Cathedral on Hill Street.",
+        "They mentioned Venerable Suzanne Aubert, founder of the Sisters of Compassion.",
+        "They wanted the Catholic Marist missions of the Hokianga.",
+        "They spoke of St. Mary of the Angels on Boulcott Street.",
+      ],
+      secular: [
+        "They were flying to the capital at the southern end of the North Island.",
+        "They asked about Te Papa — the national museum on the waterfront.",
+        "They mentioned the Wellington Cable Car up to the botanic garden.",
+        "They wanted the Zealandia nature sanctuary.",
+        "They spoke of Weta Workshop tours and The Lord of the Rings film locations.",
+      ],
+    },
+  },
+  longyearbyen: {
+    name: "Longyearbyen, Svalbard",
+    flag: "🇸🇯",
+    flavor: "The world's northernmost town. Polar-bear warning signs mark the edge of the inhabited zone.",
+    witnesses: {
+      catholic: ["a Svalbard Church caretaker", "a coal-mine museum guide", "a snowmobile tour operator"],
+      secular: ["a Global Seed Vault scientist", "a coal-mine museum guide", "a snowmobile tour operator"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the world's northernmost town, halfway to the pole.",
+        "They asked about Svalbard Church — Lutheran, the archipelago's only church.",
+        "They mentioned that the nearest Catholic Mass is an occasional visiting priest from Tromsø.",
+        "They wanted to stand above 78 degrees north.",
+        "They spoke of polar night, when no Mass is said under the open sky.",
+      ],
+      secular: [
+        "They were flying to the northernmost town on earth at 78°N.",
+        "They asked about the Global Seed Vault carved into the permafrost.",
+        "They mentioned reindeer and polar bears outnumbering humans.",
+        "They wanted the four-month polar night — or the four-month midnight sun.",
+        "They spoke of the 1920 Svalbard Treaty and the coal-mining legacy.",
+      ],
+    },
+  },
+  port_moresby: {
+    name: "Port Moresby, Papua New Guinea",
+    flag: "🇵🇬",
+    flavor: "The Gulf of Papua slides along a coast of stilt villages. Highland clans descend for markets at Gordons.",
+    witnesses: {
+      catholic: ["a sacristan at the Cathedral of the Sacred Heart", "a National Museum docent", "a PMV bus driver"],
+      secular: ["a Kokoda Track guide", "a National Museum docent", "a PMV bus driver"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to PNG's capital on the Gulf of Papua.",
+        "They asked after the Cathedral of the Sacred Heart in Port Moresby.",
+        "They mentioned Blessed Peter To Rot, PNG's first beatified martyr.",
+        "They wanted to see the Catholic mission legacy — millions of faithful nationwide.",
+        "They spoke of Pope Francis's 2024 visit to Papua New Guinea.",
+      ],
+      secular: [
+        "They were flying to PNG's capital on the Gulf of Papua.",
+        "They asked about the National Museum and its Sepik masks.",
+        "They mentioned the Kokoda Track — the WWII trail across the Owen Stanleys.",
+        "They wanted to see Parliament Haus with its Spirit House design.",
+        "They spoke of the 800-plus languages spoken across the country.",
+      ],
+    },
+  },
+  vaduz: {
+    name: "Vaduz, Liechtenstein",
+    flag: "🇱🇮",
+    flavor: "A prince's castle on a ridge. Five thousand residents watch the Rhine flow toward Lake Constance.",
+    witnesses: {
+      catholic: ["a sacristan at St. Florin's Cathedral", "a postage-stamp collector in town", "a taxi driver on Städtle"],
+      secular: ["a Vaduz Castle guide", "a postage-stamp collector in town", "a taxi driver on Städtle"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the capital of Liechtenstein — 75% Catholic.",
+        "They asked after the Cathedral of St. Florin, the country's only cathedral.",
+        "They mentioned the Archdiocese of Vaduz, elevated in 1997.",
+        "They wanted the Wallfahrtskirche in Schellenberg — a Marian pilgrimage site.",
+        "They spoke of Saint Lucius, patron of Liechtenstein and Chur.",
+      ],
+      secular: [
+        "They were flying to the capital of Liechtenstein — 5,500 residents above the Rhine.",
+        "They asked about Vaduz Castle — the Prince's private residence.",
+        "They mentioned the postage-stamp museum, the country's signature export.",
+        "They wanted a day trip to the ski slopes at Malbun.",
+        "They spoke of wine tasting in the Prince's own vineyards.",
+      ],
+    },
+  },
+  vienna: {
+    name: "Vienna, Austria",
+    flag: "🇦🇹",
+    flavor: "Stephansdom's Gothic spire needles the sky. Coffeehouse tables spill from the Ringstrasse in every season.",
+    witnesses: {
+      catholic: ["a verger at Stephansdom", "a Sachertorte chef at Hotel Sacher", "a Wiener Philharmoniker usher"],
+      secular: ["a Schönbrunn tour guide", "a Sachertorte chef at Hotel Sacher", "a Wiener Philharmoniker usher"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the former Habsburg capital on the Danube.",
+        "They asked about Stephansdom — Vienna's Gothic cathedral.",
+        "They mentioned Karl I of Austria, last Habsburg emperor, beatified in 2004.",
+        "They wanted the Imperial Crypt with 149 Habsburg burials.",
+        "They spoke of Saint Clemens Maria Hofbauer, patron of Vienna.",
+      ],
+      secular: [
+        "They were flying to the former Habsburg capital on the Danube.",
+        "They asked about Schönbrunn Palace and its gardens.",
+        "They mentioned Klimt's Kiss at the Belvedere and Schiele's oeuvre.",
+        "They wanted a Sachertorte at Hotel Sacher.",
+        "They spoke of the Vienna Philharmonic's New Year's Concert.",
+      ],
+    },
+  },
+  amsterdam: {
+    name: "Amsterdam, Netherlands",
+    flag: "🇳🇱",
+    flavor: "A semicircle of 17th-century canals. Bikes triple the number of cars on every bridge.",
+    witnesses: {
+      catholic: ["a priest at St. Nicholas Basilica", "a stroopwafel vendor at Albert Cuyp", "a canal-boat captain"],
+      secular: ["a Rijksmuseum docent", "a stroopwafel vendor at Albert Cuyp", "a canal-boat captain"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the Dutch capital on its semicircle of 17th-century canals.",
+        "They asked after St. Nicholas Basilica opposite the Central Station.",
+        "They mentioned Our Lord in the Attic — a clandestine Catholic church from 1663.",
+        "They wanted the annual Silent Walk commemorating the Miracle of Amsterdam.",
+        "They spoke of Titus Brandsma, Dutch Carmelite martyr canonized in 2022.",
+      ],
+      secular: [
+        "They were flying to the Dutch capital on its canals.",
+        "They asked about the Van Gogh Museum and the Rijksmuseum.",
+        "They mentioned Anne Frank House in the Jordaan quarter.",
+        "They wanted stroopwafels at Albert Cuyp market.",
+        "They spoke of 800,000 bikes sharing streets with 900,000 people.",
+      ],
+    },
+  },
+  prague: {
+    name: "Prague, Czech Republic",
+    flag: "🇨🇿",
+    flavor: "The Vltava loops past red roofs. Charles Bridge statues watch pilgrims cross at dawn.",
+    witnesses: {
+      catholic: ["a sacristan at Our Lady Victorious", "a Pilsner vendor near Old Town Square", "a Charles Bridge busker"],
+      secular: ["an Astronomical Clock guide", "a Pilsner vendor near Old Town Square", "a Charles Bridge busker"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the Bohemian capital on the Vltava.",
+        "They asked about the Infant Jesus of Prague at Our Lady Victorious.",
+        "They mentioned Saint John of Nepomuk, patron of silence under torture.",
+        "They wanted St. Vitus Cathedral inside Prague Castle.",
+        "They spoke of Saint Agnes of Bohemia, canonized in 1989.",
+      ],
+      secular: [
+        "They were flying to the Bohemian capital on the Vltava.",
+        "They asked about the Astronomical Clock — medieval figures strike the hour.",
+        "They mentioned Franz Kafka's haunts in the Jewish Quarter.",
+        "They wanted a Charles Bridge sunset with the castle behind.",
+        "They spoke of the 1989 Velvet Revolution in Wenceslas Square.",
+      ],
+    },
+  },
+  budapest: {
+    name: "Budapest, Hungary",
+    flag: "🇭🇺",
+    flavor: "Buda's hills face Pest's grand avenues across the Danube. Thermal baths steam at dawn.",
+    witnesses: {
+      catholic: ["a verger at St. Stephen's Basilica", "a Széchenyi baths attendant", "a tram operator on the 2"],
+      secular: ["a Fisherman's Bastion guide", "a Széchenyi baths attendant", "a tram operator on the 2"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the Hungarian capital on the Danube.",
+        "They asked after St. Stephen's Basilica and the saint-king's incorrupt right hand.",
+        "They mentioned Saint Stephen of Hungary, founder of the Christian kingdom.",
+        "They wanted the Holy Right procession on August 20.",
+        "They spoke of the Pauline Fathers — Hungary's native order — and their Mariazell link.",
+      ],
+      secular: [
+        "They were flying to the Hungarian capital straddling the Danube.",
+        "They asked about the Parliament — Hungary's largest building.",
+        "They mentioned Széchenyi thermal baths and the ruin bars of District VII.",
+        "They wanted a Fisherman's Bastion sunset over Pest.",
+        "They spoke of goulash, pörkölt, and Tokaj wines.",
+      ],
+    },
+  },
+  warsaw: {
+    name: "Warsaw, Poland",
+    flag: "🇵🇱",
+    flavor: "Stalinist towers and rebuilt baroque squares share the skyline. Chopin plays in free parks each Sunday.",
+    witnesses: {
+      catholic: ["a priest at St. John's Archcathedral", "a pierogi vendor in Old Town", "a tram operator on Nowy Świat"],
+      secular: ["a Warsaw Uprising Museum guide", "a pierogi vendor in Old Town", "a tram operator on Nowy Świat"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Poland's capital on the Vistula.",
+        "They asked about the Temple of Divine Providence in Wilanów.",
+        "They mentioned Blessed Jerzy Popiełuszko, Solidarity chaplain martyred in 1984.",
+        "They wanted St. John's Archcathedral in the rebuilt Old Town.",
+        "They spoke of Chopin's heart preserved in a pillar of the Holy Cross Church.",
+      ],
+      secular: [
+        "They were flying to Poland's capital on the Vistula.",
+        "They asked about the rebuilt Old Town — reconstructed from 1940s rubble.",
+        "They mentioned the Warsaw Uprising Museum.",
+        "They wanted pierogi at Pod Samsonem.",
+        "They spoke of the Palace of Culture and Science — Stalin's uninvited gift.",
+      ],
+    },
+  },
+  reykjavik: {
+    name: "Reykjavik, Iceland",
+    flag: "🇮🇸",
+    flavor: "Basalt columns of Hallgrímskirkja rise over pastel rooftops. Northern lights dance in winter skies.",
+    witnesses: {
+      catholic: ["a sacristan at Christ the King Cathedral", "a Hallgrímskirkja organist", "a taxi driver on Laugavegur"],
+      secular: ["a Blue Lagoon attendant", "a Hallgrímskirkja organist", "a taxi driver on Laugavegur"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Iceland's capital — a tiny Catholic minority in a Lutheran country.",
+        "They asked after the Cathedral of Christ the King, consecrated in 1929.",
+        "They mentioned the Benedictine nuns of Sóleyjargata.",
+        "They wanted to see where Pope John Paul II visited Iceland in 1989.",
+        "They spoke of pre-Reformation Catholic bishops at Skálholt.",
+      ],
+      secular: [
+        "They were flying to Iceland's capital — the world's northernmost.",
+        "They asked about the Blue Lagoon geothermal spa.",
+        "They mentioned Hallgrímskirkja — the basalt-column Lutheran cathedral.",
+        "They wanted a Golden Circle tour to Geysir and Gullfoss.",
+        "They spoke of Northern Lights seen from Perlan on winter nights.",
+      ],
+    },
+  },
+  bogota: {
+    name: "Bogotá, Colombia",
+    flag: "🇨🇴",
+    flavor: "The Andean high plain tilts toward Monserrate. Eternal spring settles over cobbled La Candelaria.",
+    witnesses: {
+      catholic: ["a sacristan at the Catedral Primada", "an arepa vendor in La Candelaria", "a TransMilenio driver"],
+      secular: ["a Gold Museum docent", "an arepa vendor in La Candelaria", "a TransMilenio driver"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Colombia's capital on an Andean high plain at 2,640 m.",
+        "They asked about the Cathedral of Bogotá on Plaza de Bolívar.",
+        "They mentioned Saint Peter Claver, Jesuit 'slave of the slaves' in Cartagena.",
+        "They wanted Monserrate and its church of the Fallen Christ.",
+        "They spoke of the Salt Cathedral of Zipaquirá — an underground pilgrimage site.",
+      ],
+      secular: [
+        "They were flying to Colombia's capital high in the Andes.",
+        "They asked about the Gold Museum and its Muisca collection.",
+        "They mentioned La Candelaria — the cobblestone colonial quarter.",
+        "They wanted to ride the Monserrate funicular at sunset.",
+        "They spoke of ajiaco stew and Juan Valdez coffee.",
+      ],
+    },
+  },
+  quito: {
+    name: "Quito, Ecuador",
+    flag: "🇪🇨",
+    flavor: "UNESCO-listed colonial churches crowd the old centre. Pichincha volcano looms straight overhead.",
+    witnesses: {
+      catholic: ["a sacristan at La Compañía", "a locro chef at the Mercado Central", "a Trolebús operator"],
+      secular: ["a TelefériQo operator", "a locro chef at the Mercado Central", "a Trolebús operator"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Ecuador's capital in the Andes, almost on the equator.",
+        "They asked about La Compañía — the gilded Jesuit church.",
+        "They mentioned Saint Mariana de Jesús de Paredes, patron of Ecuador.",
+        "They wanted the Basílica del Voto Nacional with its iguana gargoyles.",
+        "They spoke of Saint Hermano Miguel, Ecuador's second canonized saint.",
+      ],
+      secular: [
+        "They were flying to Ecuador's capital in the Andes, 2,850 m high.",
+        "They asked about the UNESCO-listed colonial centre — the first World Heritage site ever.",
+        "They mentioned La Mitad del Mundo — the equator monument outside town.",
+        "They wanted the TelefériQo up Pichincha.",
+        "They spoke of Otavalo market a couple of hours north.",
+      ],
+    },
+  },
+  la_paz: {
+    name: "La Paz, Bolivia",
+    flag: "🇧🇴",
+    flavor: "A canyon city ringed by the Altiplano. Red roofs tumble between cable-car stations in the thin air.",
+    witnesses: {
+      catholic: ["a priest at the Cathedral of La Paz", "a Witches' Market vendor", "a teleférico operator"],
+      secular: ["a Witches' Market vendor", "a teleférico operator", "a Death Road bike guide"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to the world's highest capital — a canyon city in the Andes.",
+        "They asked about the Cathedral of La Paz on Plaza Murillo.",
+        "They mentioned Our Lady of Copacabana, patroness of Bolivia.",
+        "They wanted the Basilica of San Francisco — mestizo baroque.",
+        "They spoke of the pilgrimage to Copacabana on Lake Titicaca.",
+      ],
+      secular: [
+        "They were flying to the world's highest capital, 3,640 m above sea level.",
+        "They asked about the teleféricos — aerial cable cars across the canyon city.",
+        "They mentioned the Witches' Market and the llama fetuses on display.",
+        "They wanted a Death Road bike descent.",
+        "They spoke of Tiwanaku ruins a couple of hours away.",
+      ],
+    },
+  },
+  brasilia: {
+    name: "Brasília, Brazil",
+    flag: "🇧🇷",
+    flavor: "Niemeyer's curves spread across an airplane-shaped plan. A concrete crown of thorns rises on the Eixo Monumental.",
+    witnesses: {
+      catholic: ["a verger at Brasília Cathedral", "a pastéis vendor in the Eixo Monumental", "a Metrô operator at Central"],
+      secular: ["a Niemeyer architecture guide", "a pastéis vendor in the Eixo Monumental", "a Metrô operator at Central"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Brazil's planned modernist capital.",
+        "They asked about Oscar Niemeyer's Cathedral of Brasília — 16 curved pillars.",
+        "They mentioned the Don Bosco Sanctuary's twelve tonnes of blue stained glass.",
+        "They wanted the archdiocesan see founded with the city in 1960.",
+        "They spoke of the Eucharistic tabernacle at the Praça dos Três Poderes.",
+      ],
+      secular: [
+        "They were flying to Brazil's planned modernist capital — built in 41 months from 1956.",
+        "They asked about Lúcio Costa's airplane-shaped city plan.",
+        "They mentioned the National Congress twin towers flanking a saucer and a bowl.",
+        "They wanted to see the Palace of the Alvorada.",
+        "They spoke of Niemeyer's curves across every superquadra.",
+      ],
+    },
+  },
+  addis_ababa: {
+    name: "Addis Ababa, Ethiopia",
+    flag: "🇪🇹",
+    flavor: "Jacarandas bloom purple along the broad avenues. The African Union gleams beside eucalyptus groves.",
+    witnesses: {
+      catholic: ["a deacon at Holy Savior Cathedral", "a coffee-ceremony woman in Bole", "a Light Rail operator"],
+      secular: ["a National Museum docent", "a coffee-ceremony woman in Bole", "a Light Rail operator"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Ethiopia's capital in the highlands, 2,355 m.",
+        "They asked about Holy Savior Cathedral of the Ethiopian Catholic archeparchy.",
+        "They mentioned Cardinal Berhaneyesus Souraphiel, Ethiopia's first cardinal.",
+        "They wanted Medhane Alem Cathedral and its copper dome.",
+        "They spoke of the Ethiopian Catholic Church in full communion with Rome.",
+      ],
+      secular: [
+        "They were flying to Ethiopia's capital — Africa's political hub and AU headquarters.",
+        "They asked about Meskel Square and the annual True Cross festival.",
+        "They mentioned the National Museum and Lucy, the Australopithecus fossil.",
+        "They wanted a coffee ceremony in the Bole district.",
+        "They spoke of the Addis Ababa–Djibouti Railway.",
+      ],
+    },
+  },
+  accra: {
+    name: "Accra, Ghana",
+    flag: "🇬🇭",
+    flavor: "The Gulf of Guinea breeze cools the fishing canoes at Jamestown. Kente stalls glow with orange and green.",
+    witnesses: {
+      catholic: ["a sacristan at Holy Spirit Cathedral", "a jollof cook on Osu Oxford Street", "a tro-tro driver"],
+      secular: ["a Kwame Nkrumah Park guide", "a jollof cook on Osu Oxford Street", "a tro-tro driver"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Ghana's capital on the Gulf of Guinea.",
+        "They asked about the Cathedral of the Holy Spirit in Ridge.",
+        "They mentioned the Archdiocese of Accra, established in 1950.",
+        "They wanted the Shrine of Our Lady of Africa in Akropong.",
+        "They spoke of Pope John Paul II's 1980 Mass in the capital.",
+      ],
+      secular: [
+        "They were flying to Ghana's capital on the Gulf of Guinea.",
+        "They asked about Cape Coast Castle — the Door of No Return, three hours west.",
+        "They mentioned Kwame Nkrumah's mausoleum at the Memorial Park.",
+        "They wanted jollof rice and a Labadi Beach evening.",
+        "They spoke of kente cloth weaving in the Bonwire workshops.",
+      ],
+    },
+  },
+  lagos: {
+    name: "Lagos, Nigeria",
+    flag: "🇳🇬",
+    flavor: "Fifteen million on the Atlantic lagoon. Afrobeats spill from every danfo bus in the rush.",
+    witnesses: {
+      catholic: ["a sacristan at Holy Cross Cathedral", "a jollof cook in Ikoyi", "an okada motorcycle taxi driver"],
+      secular: ["a Nike Gallery guide", "a jollof cook in Ikoyi", "an okada motorcycle taxi driver"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Nigeria's largest city, fifteen million on the Atlantic coast.",
+        "They asked about Holy Cross Cathedral on Lagos Island.",
+        "They mentioned Blessed Cyprian Michael Iwene Tansi, beatified in 1998.",
+        "They wanted the Shrine of Our Lady of Lourdes in Ikoyi.",
+        "They spoke of Cardinal Alfred Adewale Martins, Archbishop of Lagos.",
+      ],
+      secular: [
+        "They were flying to Nigeria's largest city on the Atlantic lagoon.",
+        "They asked about Nike Art Gallery in Lekki — 8,000 works on five floors.",
+        "They mentioned the jollof wars with Senegal and Ghana.",
+        "They wanted an Afrobeats show near Tafawa Balewa Square.",
+        "They spoke of the Lekki Conservation Centre's canopy walkway.",
+      ],
+    },
+  },
+  marrakech: {
+    name: "Marrakech, Morocco",
+    flag: "🇲🇦",
+    flavor: "Red-earth walls enclose a labyrinth of souks. Snake charmers and storytellers fill Jemaa el-Fnaa at dusk.",
+    witnesses: {
+      catholic: ["a Franciscan at Saints Martyrs' Church", "a souk spice merchant", "a calèche driver in the medina"],
+      secular: ["a Jardin Majorelle guide", "a souk spice merchant", "a calèche driver in the medina"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to Morocco's red-walled imperial city.",
+        "They asked after the Church of the Saints Martyrs — named for 13th-century Franciscan missionaries.",
+        "They mentioned Morocco's small Catholic minority served by the Archdiocese of Rabat.",
+        "They wanted to see where Pope Francis visited Morocco in 2019.",
+        "They spoke of Blessed Ramón Llull, Franciscan missionary to North Africa.",
+      ],
+      secular: [
+        "They were flying to Morocco's imperial red city.",
+        "They asked about Jemaa el-Fnaa square and its dusk carnival.",
+        "They mentioned the Majorelle Garden and Yves Saint Laurent's villa.",
+        "They wanted a day wandering the souks of the medina.",
+        "They spoke of tagine cooking classes and mint tea in the Atlas foothills.",
+      ],
+    },
+  },
+  johannesburg: {
+    name: "Johannesburg, South Africa",
+    flag: "🇿🇦",
+    flavor: "Gold-rush bones carry a modern megacity a mile high. Vilakazi Street still echoes with Mandela's footsteps.",
+    witnesses: {
+      catholic: ["a sacristan at Christ the King Cathedral", "a Soweto tour guide", "a Gautrain conductor"],
+      secular: ["an Apartheid Museum docent", "a Soweto tour guide", "a Gautrain conductor"],
+    },
+    hints: {
+      catholic: [
+        "They were flying to South Africa's largest city, 1,750 m high on the Witwatersrand.",
+        "They asked after the Cathedral of Christ the King in the CBD.",
+        "They mentioned Blessed Benedict Daswa, Limpopo catechist martyred in 1990.",
+        "They wanted the Shrine of Our Lady of Fatima in Turffontein.",
+        "They spoke of St. Benedict House of Studies, the Jesuit formation centre.",
+      ],
+      secular: [
+        "They were flying to South Africa's largest city, 5.6 million on the Witwatersrand.",
+        "They asked about the Apartheid Museum and Constitution Hill.",
+        "They mentioned Nelson Mandela's Soweto house on Vilakazi Street.",
+        "They wanted a Cradle of Humankind day trip to the Sterkfontein caves.",
+        "They spoke of braai at a Soweto shebeen.",
+      ],
+    },
+  },
 };
 
 const CITY_REGIONS = {
@@ -1631,15 +2156,22 @@ const CITY_REGIONS = {
   barcelona: "europe", madrid: "europe", azores: "europe", zurich: "europe",
   vatican_city: "europe", san_marino: "europe", reggio_calabria: "europe",
   athens: "europe", thessaloniki: "europe", venice: "europe",
+  vaduz: "europe", vienna: "europe", amsterdam: "europe", prague: "europe",
+  budapest: "europe", warsaw: "europe", reykjavik: "europe",
+  longyearbyen: "europe",
   goa: "asia", manila: "asia", jerusalem: "asia", tokyo: "asia",
   beijing: "asia", shanghai: "asia", macau: "asia", beirut: "asia",
   cairo: "africa", cape_town: "africa", dakar: "africa",
   nairobi: "africa", axum: "africa", tunis: "africa", tripoli: "africa",
+  addis_ababa: "africa", accra: "africa", lagos: "africa",
+  marrakech: "africa", johannesburg: "africa",
   mexico_city: "americas", new_york: "americas",
   buenos_aires: "americas", rio: "americas",
   montevideo: "americas", lima: "americas",
   santiago_chile: "americas", merida: "americas", galapagos: "americas",
-  sydney: "oceania",
+  ottawa: "americas", montreal: "americas",
+  bogota: "americas", quito: "americas", la_paz: "americas", brasilia: "americas",
+  sydney: "oceania", wellington: "oceania", port_moresby: "oceania",
 };
 
 const TRAIT_KEYS = ["hair", "hobby", "vehicle", "feature"];
