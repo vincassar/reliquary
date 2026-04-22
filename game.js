@@ -1425,75 +1425,87 @@
   }
 
   // Each cutscene type has multiple variants; a random one plays each time.
+  // Variants differ in which scenes they use (and the order) so the visual
+  // signature is distinct, not just the captions.
   const CUTSCENE_VARIANTS = {
     win: [
+      // A — full chase → pile-on → jail
       (ctx) => [
         { html: sceneChase("caught"), caption: "The chase is on — you close the gap!", ms: 3000 },
         { html: scenePileon(),        caption: `Pile on, boys! — ${ctx.suspectName} is cornered.`, ms: 2600 },
         { html: sceneJail(),          caption: `Behind bars. ${ctx.suspectName} is done running.`, ms: 2800 },
         { html: intertitle(["CASE CLOSED", `The ${ctx.artifact} is recovered.`]), caption: "", ms: 2400 },
       ],
+      // B — no chase, caught in hotel; straight to pile-on and jail
       (ctx) => [
-        { html: sceneChase("caught"), caption: `A tip comes in — you spot ${ctx.suspectName} crossing the plaza!`, ms: 2800 },
-        { html: scenePileon(),        caption: `Hands in the air, ${ctx.suspectName}! The cuffs snap shut.`, ms: 2600 },
+        { html: scenePileon(),        caption: `A tip puts five cops on ${ctx.suspectName} in the hotel lobby.`, ms: 2600 },
         { html: sceneJail(),          caption: `A concrete cell, a single bulb. ${ctx.suspectName} waits for extradition.`, ms: 2800 },
         { html: intertitle(["CASE CLOSED", `The ${ctx.artifact} is back in the Bureau's vault.`]), caption: "", ms: 2400 },
       ],
+      // C — chase → jail (no pile-on, just a clean collar)
       (ctx) => [
-        { html: sceneChase("caught"), caption: "A scuffle in the hotel lobby — you've got them!", ms: 2600 },
-        { html: scenePileon(),        caption: "Five cops on one thief. The struggle doesn't last long.", ms: 2400 },
-        { html: sceneJail(),          caption: `Local gendarmes escort ${ctx.suspectName} to holding.`, ms: 2600 },
+        { html: sceneChase("caught"), caption: `You spot ${ctx.suspectName} crossing the plaza — then close in at a dead run.`, ms: 2800 },
+        { html: sceneJail(),          caption: `Local gendarmes take ${ctx.suspectName} to holding without another sound.`, ms: 2800 },
         { html: intertitle(["CASE CLOSED", `${ctx.artifact} — recovered intact.`]), caption: "", ms: 2400 },
       ],
     ],
     wrong_suspect: [
+      // A — the classic blunder: pile on wrong → real thief escapes → laughs
       (ctx) => [
         { html: scenePileon(),  caption: `You pile on ${ctx.wrongName}…`, ms: 2400 },
         { html: sceneEscape(),  caption: `…while ${ctx.suspectName} slips away behind you!`, ms: 2600 },
         { html: sceneLaugh(),   caption: `${ctx.suspectName} has the last laugh.`, ms: 2800 },
         { html: intertitle(["WRONG SUSPECT", `${ctx.suspectName} makes off with the ${ctx.artifact}.`]), caption: "", ms: 2400 },
       ],
+      // B — thief escapes FIRST, you then realize, no laugh (quiet burn)
       (ctx) => [
-        { html: scenePileon(),  caption: `${ctx.wrongName} protests. You realize: wrong face.`, ms: 2400 },
-        { html: sceneEscape(),  caption: `Across the square, ${ctx.suspectName} hails a taxi.`, ms: 2600 },
-        { html: sceneLaugh(),   caption: `${ctx.suspectName} blows you a kiss from the window.`, ms: 2800 },
+        { html: sceneEscape(),  caption: `${ctx.suspectName} is already a silhouette at the end of the alley.`, ms: 2600 },
+        { html: scenePileon(),  caption: `By the time you realize, ${ctx.wrongName} is flat on the cobbles, protesting.`, ms: 2400 },
         { html: intertitle(["WRONG SUSPECT", `${ctx.suspectName} is in the wind with the ${ctx.artifact}.`]), caption: "", ms: 2400 },
       ],
+      // C — gate scene (wrong arrest at customs) → thief laughs — skip pile
       (ctx) => [
-        { html: scenePileon(),  caption: `${ctx.wrongName} demands a lawyer. You oblige — red-faced.`, ms: 2400 },
-        { html: sceneEscape(),  caption: `${ctx.suspectName} watches from a rooftop bar, sipping vermouth.`, ms: 2600 },
-        { html: sceneLaugh(),   caption: `The thief's laughter echoes down the alley.`, ms: 2800 },
+        { html: sceneGate(),    caption: `Customs detains ${ctx.wrongName} at the gate — wrong face, wrong warrant.`, ms: 2800 },
+        { html: sceneLaugh(),   caption: `${ctx.suspectName} watches from the rooftop bar, sipping vermouth.`, ms: 2800 },
         { html: intertitle(["WRONG SUSPECT", `The ring laughs longest.`]), caption: "", ms: 2400 },
       ],
     ],
     no_warrant: [
+      // A — classic: gate → laugh
       (ctx) => [
-        { html: sceneGate(),    caption: "No warrant! Customs waves them right through.", ms: 2800 },
+        { html: sceneGate(),    caption: "No warrant. Customs waves them right through.", ms: 2800 },
         { html: sceneLaugh(),   caption: `${ctx.suspectName} tips a hat from the jetway.`, ms: 2800 },
         { html: intertitle(["WALKS FREE", `${ctx.suspectName} is gone with the ${ctx.artifact}.`]), caption: "", ms: 2400 },
       ],
+      // B — gate only, dignified shrug (no laugh)
       (ctx) => [
-        { html: sceneGate(),    caption: "You have only the name. Customs demands more — a warrant. You have none.", ms: 2800 },
-        { html: sceneLaugh(),   caption: `${ctx.suspectName} smirks from business-class boarding.`, ms: 2800 },
+        { html: sceneGate(),    caption: "You have only the name. Customs demands more — a warrant. You have none.", ms: 3000 },
         { html: intertitle(["WALKS FREE", `Paperwork beats police work.`]), caption: "", ms: 2400 },
+      ],
+      // C — escape into the airport crowd, no gate confrontation
+      (ctx) => [
+        { html: sceneEscape(),  caption: `${ctx.suspectName} steps onto a jet bridge. You can only watch.`, ms: 2600 },
+        { html: sceneLaugh(),   caption: `${ctx.suspectName} waves from a business-class window.`, ms: 2800 },
+        { html: intertitle(["WALKS FREE", `${ctx.suspectName} vanishes with the ${ctx.artifact}.`]), caption: "", ms: 2400 },
       ],
     ],
     timeout: [
+      // A — clock → escape → laugh (classic)
       (ctx) => [
         { html: sceneClock(),   caption: "The clock runs out. The Bureau's window closes.", ms: 2800 },
         { html: sceneEscape(),  caption: `While the cops chase their tails, ${ctx.suspectName} vanishes.`, ms: 2400 },
         { html: sceneLaugh(),   caption: `${ctx.suspectName} laughs from halfway around the world.`, ms: 2800 },
         { html: intertitle(["THE TRAIL GOES COLD", `The ${ctx.artifact} is lost.`]), caption: "", ms: 2400 },
       ],
+      // B — clock → jail-less, short; just a cold clock and an intertitle
       (ctx) => [
-        { html: sceneClock(),   caption: "The Bureau's stopwatch clicks to zero.", ms: 2600 },
-        { html: sceneEscape(),  caption: `${ctx.suspectName} slips out on the night flight.`, ms: 2400 },
-        { html: sceneLaugh(),   caption: `${ctx.suspectName} smiles from the first-class cabin.`, ms: 2600 },
-        { html: intertitle(["OUT OF TIME", `The ${ctx.artifact} is untraceable.`]), caption: "", ms: 2400 },
+        { html: sceneClock(),   caption: "The Bureau's stopwatch clicks to zero.", ms: 3000 },
+        { html: intertitle(["OUT OF TIME", `${ctx.suspectName} is untraceable with the ${ctx.artifact}.`]), caption: "", ms: 2400 },
       ],
+      // C — thief's getaway happens first, THEN the clock
       (ctx) => [
-        { html: sceneClock(),   caption: "Time's up. The captain relieves you.", ms: 2600 },
         { html: sceneEscape(),  caption: `${ctx.suspectName} was always three hops ahead.`, ms: 2400 },
+        { html: sceneClock(),   caption: `Time's up. The captain relieves you.`, ms: 2600 },
         { html: sceneLaugh(),   caption: `${ctx.suspectName} will never be this close again.`, ms: 2600 },
         { html: intertitle(["UNSOLVED", `The ${ctx.artifact} is on the black market.`]), caption: "", ms: 2400 },
       ],
